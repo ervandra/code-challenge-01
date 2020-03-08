@@ -1,0 +1,128 @@
+html, body {
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  line-height: 1.5;
+  font-size: 16px;
+  color: #514353;
+  background: #ddd;
+  // font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Courier New', Courier, monospace;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 100vh;
+}
+
+.header {
+  h1 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    line-height: 60px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+}
+
+.content {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  .copyright {
+    font-size: 12px;
+    text-align: center;
+    line-height: 40px;
+    a {
+      text-decoration: none;
+      color: #222;
+    }
+  }
+}
+
+.clock {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background: #ddd;
+  border-radius: 50%;
+  box-shadow: 8px 8px 20px 1px rgba(53,53,53,.2),
+              -8px -8px 20px 1px rgba(255,255,255, .3),
+              8px 8px 20px 1px rgba(53,53,53, .1) inset,
+              -8px -8px 20px 1px rgba(255,255,255, .3) inset;
+  border: 12px solid #eee;
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #ddd;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    margin-top: -12px;
+    margin-left: -12px;
+    box-shadow: 4px 4px 12px rgba(53,53,53,.2),
+              -4px -4px 12px rgba(255,255,255, .3);
+    z-index: 5;
+  }
+  .hour {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #000;
+    height: 8px;
+    width: 80px;
+    margin-top: -4px;
+    border-radius: 4px;
+    transform-origin: 0 50%;
+    animation: spin 216000s linear infinite;
+    box-shadow: 2px 2px 6px rgba(53,53,53,.2);
+  }
+  .minute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #999;
+    height: 6px;
+    width: 110px;
+    margin-top: -3px;
+    border-radius: 4px;
+    transform-origin: 0 50%;
+    animation: spin 3600s linear infinite;
+    box-shadow: 2px 2px 6px rgba(53,53,53,.2);
+  }
+  .second {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #e33;
+    height: 2px;
+    width: 120px;
+    margin-top: -1px;
+    border-radius: 2px;
+    transform-origin: 0 50%;
+    animation: spin 60s steps(60) infinite;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
